@@ -35,7 +35,7 @@ export default async function createQuestionCollection(){
             db,
             questionCollection,
             "title",
-            IndexType.Fulltext,
+            IndexType.Key,
             ["title"],
             ["asc"]
         ),
@@ -43,7 +43,7 @@ export default async function createQuestionCollection(){
             db,
             questionCollection,
             "content",
-            IndexType.Fulltext,
+            IndexType.Key,
             ["content"],
             ["asc"]
         ),
