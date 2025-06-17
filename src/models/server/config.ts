@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import env from "@/app/env";
 
 import {Avatars, Client, Databases, Storage, Users} from "node-appwrite";
