@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { answerCollection, db } from "@/models/name";
 import { databases, users } from "@/models/server/config";
 import { NextRequest, NextResponse } from "next/server";
@@ -24,7 +25,8 @@ export async function POST(request: NextRequest){
 
     return NextResponse.json(response, {status: 201})
 
-  } catch (error: any) {
+  } 
+  catch (error: any) {
     return NextResponse.json(
       {
         error: error?.message || "Error creating answer"
@@ -40,8 +42,10 @@ export async function DELETE(request: NextRequest){
   try {
     const {answerId} = await request.json()
 
+    // get document from id
     const answer = await databases.getDocument(db, answerCollection, answerId)
 
+    // delete the document
     const response = await databases.deleteDocument(db, answerCollection, answerId)
 
     //decrese the reputation
@@ -50,14 +54,11 @@ export async function DELETE(request: NextRequest){
       reputation: Number(prefs.reputation) - 1
     })
 
-    return NextResponse.json(
-      {data: response},
-      {status: 200}
-  )
+    return NextResponse.json({data: response},{status: 200})
 
 
-
-  } catch (error: any) {
+  } 
+  catch (error: any) {
     return NextResponse.json(
       {
         message: error?.message || "Error deleting the answer"
