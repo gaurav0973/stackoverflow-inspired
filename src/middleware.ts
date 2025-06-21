@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
@@ -22,7 +21,7 @@ export const config = {
   - _next/static
   - _next/image
   - favicon.com
-  - jo yaha hoga vaha vaha ye middleware nahi chalega 
+
   */
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.ico).*)",

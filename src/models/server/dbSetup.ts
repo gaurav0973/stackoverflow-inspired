@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { db } from "../name";
 import createAnswerCollection from "./answer.collection";
 import createCommentCollection from "./comment.collection";

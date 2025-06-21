@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Permission } from "node-appwrite";
 import { questionAttachmentBucket } from "../name";
 import { storage } from "./config";

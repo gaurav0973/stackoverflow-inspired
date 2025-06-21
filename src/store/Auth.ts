@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { persist } from "zustand/middleware";
+
 import {AppwriteException, ID, Models} from "appwrite"
 import { account } from "@/models/client/config";
 
@@ -15,13 +16,25 @@ interface IAuthStore {
   user: Models.User<UserPrefs> | null
   hydrated: boolean
 
-
   setHydrated(): void;
   verfiySession(): Promise<void>;
-  login(email: string,password: string): 
-        Promise<{success: boolean, error?: AppwriteException| null}>
-  createAccount(name: string,email: string,password: string): 
-        Promise<{success: boolean,error?: AppwriteException| null}>
+  login(
+    email: string,
+    password: string
+  ): Promise<
+  {
+    success: boolean;
+    error?: AppwriteException| null
+  }>
+  createAccount(
+    name: string,
+    email: string,
+    password: string
+  ): Promise<
+  {
+    success: boolean;
+    error?: AppwriteException| null
+  }>
   logout(): Promise<void>
 }
 
@@ -42,6 +55,7 @@ export const useAuthStore = create<IAuthStore>()(
         try {
           const session = await account.getSession("current")
           set({session})
+
         } catch (error) {
           console.log(error)
         }
